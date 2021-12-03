@@ -1,0 +1,189 @@
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .main-news {
+        width: 48.9%;
+    }
+    .row-letter hr {
+        margin-right: 30px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .main-news {
+        width: 48.7%;
+    }
+    .row-letter hr {
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 991px) {
+    .main-news {
+        width: 96.6%;
+        margin-bottom: 13px;
+        margin-left: 12px;
+        height: 460px;
+    }
+    .responsive-secondary-news {
+        display: flex;
+        flex-direction: row !important;
+        padding: 0px;
+    }
+    .secondary-row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .row-letter {
+        width: 100%;
+    }
+    .secondary-news {
+        width: 100%;
+    }
+    .other-news {
+        width: 47.5%;
+        padding: 12px;
+        margin-left: 12px;
+        display: none;
+    }
+    .tab {
+        width: 100%;
+    }
+    .tabela {
+        height: 358px;
+    }
+    .text-info {
+        width: 57%;
+    }
+    .row-letter hr {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 430px) {
+    .main-news {
+        width: 96.6%;
+        margin-bottom: 13px;
+        margin-left: 12px;
+        height: 460px;
+    }
+    .responsive-secondary-news {
+        display: flex;
+        flex-direction: row !important;
+        padding: 0px;
+    }
+    .secondary-row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .row-letter {
+        width: 100%;
+    }
+    .secondary-news {
+        width: 100%;
+    }
+    .other-news {
+        width: 47.5%;
+        padding: 12px;
+        margin-left: 12px;
+        display: none;
+    }
+    .tab {
+        width: 100%;
+    }
+    .tabela {
+        height: 395px;
+    }
+    .text-info {
+        width: 57%;
+    }
+    .row-letter hr {
+        margin-right: 0;
+    }
+    .main-row {
+        display: none;
+    }
+    .responsive-blog-colunas {
+        margin-top: 30px;
+        margin-bottom: 70px;
+        height: 490px;
+    }
+    .responsive-blog-colunas {
+        margin-bottom: 70px;
+    }
+    .agenda {
+        margin-bottom: 40px;
+    }
+    .image-info {
+        display: none;
+    }
+    .image-info2 {
+        display: none;
+    }
+    .text-info {
+        width: 100%;
+        height: 140px;
+    }
+    .text-info2 {
+        width: 100%;
+    }
+    .footer-container {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .left-logo-footer a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu-center-footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px 0;
+    }
+    .menu-center-footer h4 {
+        margin-left: -55px;
+    }
+    .nav-drop p {
+        display: none;
+    }
+    .navbar {
+        padding: 0 !important;
+    }
+    .logo-nav img {
+        width: 40vw;
+    }
+    .reportagem-container {
+        padding: 10px !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .tabela-brasileiro {
+        width: 100%;
+    }
+    .tabela-agenda {
+        display: flex;
+        flex-direction: column;
+    }
+    .agenda-brasileiro {
+        width: 100%;
+        margin-top: 70px;
+    }
+    .confrontos-times {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .jogos-dia {
+        padding: 0px 50px;
+    }
+    .confrontos-times img {
+        width: 35px;
+        height: 35px;
+    }
+    .confrontos-times span {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,578 @@
+.navbar {
+    background-color: #0b2185;
+    height: 70px;
+    color: white;
+    padding: 0rem 4rem;
+    box-shadow: 0px 7px 15px 5px rgb(0 0 0 / 30%);
+    z-index: 100;
+    font-size: 16px;
+}
+
+.navbar a {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.main-row {
+    margin-top: 40px;
+}
+
+.main-news {
+    width: 49%;
+    height: 500px;
+    /* border: solid 2px red; */
+    border-radius: 4px;
+    margin-left: 12px;
+    padding: 0px;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-news img {
+    position: absolute;
+    transition: transform 0.6s ease;
+}
+
+.main-news img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.secondary-news {
+    width: 50%;
+}
+
+.other-news {
+    height: 243.5px;
+    /* border: solid 2px blue; */
+    border-radius: 4px;
+    margin: 0px 0px 13px 0px;
+    overflow: hidden;
+    position: relative;
+}
+
+.other-news img {
+    width: 100%;
+    position: absolute;
+    transition: transform 0.6s ease;
+}
+
+.other-news img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.main-titulo {
+    position: absolute;
+    color: white;
+    font-size: 38px;
+    font-weight: 700;
+    margin: 380px 20px 10px;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: #000;
+}
+
+.main-subtitulo {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    margin: 430px 20px 10px;
+    -webkit-text-stroke-width: 0.01px;
+    -webkit-text-stroke-color: #000;
+}
+
+.titulo {
+    position: absolute;
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    margin: 120px 20px 10px;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: #000;
+}
+
+.subtitulo {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    margin: 170px 20px 10px;
+    -webkit-text-stroke-width: 0.01px;
+    -webkit-text-stroke-color: #000;
+}
+
+.secondary-row {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.row-letter {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 72%;
+}
+
+.row-letter2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+}
+
+.news {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.news a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.image-info {
+    height: 193.5px;
+    width: 41%;
+    /* border: solid 2px green; */
+    border-radius: 4px;
+    margin-right: 13px;
+    overflow: hidden;
+    /* margin-bottom: 13px; */
+}
+
+.image-info2 {
+    height: 193.5px;
+    width: 36%;
+    /* border: solid 2px green; */
+    border-radius: 4px;
+    margin-right: 17px;
+    overflow: hidden;
+    /* margin-bottom: 13px; */
+}
+
+.text-info {
+    height: 193.5px;
+    width: 54%;
+    /* border: solid 2px black; */
+    border-radius: 4px;
+    padding: 15px 0;
+}
+
+.text-info h4 {
+    color: #0b2185 !important;
+}
+
+.text-info p {
+    color: black !important;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.text-info ul {
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.text-info li {
+    color: #1d67de !important;
+}
+
+.text-info2 {
+    height: 193.5px;
+    width: 62%;
+    /* border: solid 2px black; */
+    border-radius: 4px;
+    padding: 25px 0;
+}
+
+.text-info2 h4 {
+    color: #0b2185 !important;
+}
+
+.text-info2 p {
+    color: black !important;
+    font-weight: 600;
+}
+
+.text-info2 ul {
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.text-info2 li {
+    color: #1d67de !important;
+}
+
+.tab {
+    width: 28%;
+}
+
+.tabela {
+    width: 100%;
+    /* height: 330px; */
+    border: solid 2px #f2f2f2;
+    border-radius: 4px;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.row-info {
+    padding: 0 0 0 12px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid lightgrey;
+    color: grey;
+}
+
+.row-letter hr {
+    margin-right: 35px;
+}
+
+table {
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+
+.banana {
+    width: 30px;
+    height: 30px;
+}
+
+.escudo-times {
+    width: 30px;
+    padding: 8px 0 !important;
+}
+
+.sigla-times {
+    width: 40px;
+    padding: 10px 10px !important;
+}
+
+.pontos-times {
+    font-weight: bold;
+}
+
+td {
+    text-align: center;
+}
+
+.ir-tabela-completa {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 25px;
+}
+
+.ir-tabela-completa a {
+    text-decoration: none;
+    color: #1d67de;
+    font-size: 18px;
+}
+
+.tabela tbody {
+    border-top: none !important;
+}
+
+.cabeca-tabela th {
+    font-size: 13px;
+    color: #666;
+    font-weight: 300;
+}
+
+.footer {
+    width: 100%;
+    background-color: #0b2185;
+    padding: 40px 0 20px;
+    margin-top: 40px;
+}
+
+.logo-footer {
+    width: 200px;
+}
+
+.left-logo-footer {
+    color: white;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+}
+
+.menu-footer {
+    padding-left: 20px;
+}
+
+.menu-footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-footer li {
+    list-style-type: circle;
+}
+
+.sidebar-right-footer {
+    list-style-type: none;
+    padding-left: 3px;
+}
+
+.body-container {
+    margin-bottom: 80px;
+}
+
+footer {
+    background-color: #0b2185;
+    color: white;
+}
+
+.sidebar-right-footer img {
+    margin-right: 10px;
+}
+
+.titulo-reportagem {
+    margin-top: 50px;
+}
+
+.titulo-reportagem h1 {
+    font-size: 54px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.titulo-reportagem p {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 200;
+    color: #74787d;
+    margin: 20px 0px 40px;
+    text-align: justify;
+}
+
+.conteudo-reportagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteudo-reportagem img {
+    width: 80%;
+    margin-top: 40px;
+}
+
+.creditos {
+    margin: 10px 10% 0px 10%;
+    font-size: 14px;
+    color: #515254;
+    font-weight: 200;
+}
+
+.texto-reportagem {
+    margin: 25px 10% 0px 10%;
+    font-size: 20px;
+    color: black;
+}
+
+.mais-reportagens {
+    background-color: #f3f3f3;
+    margin-top: 50px;
+    padding-bottom: 80px;
+}
+
+.info-mais-reportagens {
+    margin: 0px 10%;
+    border-top: 2px black solid;
+}
+
+.info-mais-reportagens h4 {
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.mais-do-newscore {
+    margin: 30px 0;
+}
+
+.info-blog {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.info-blog a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.titulo-blog h4 {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0;
+}
+
+.titulo-blog {
+    padding: 20px;
+}
+
+.titulo-agenda h4 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.titulo-agenda {
+    padding: 20px 20px 0px 20px;
+    margin: 0;
+}
+
+.texto-blog {
+    display: flex;
+    flex-direction: column;
+}
+
+.blogs-colunas hr {
+    margin: 0;
+}
+
+.texto-blog h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.texto-blog p {
+    color: #0b2185;
+    margin: 0;
+}
+
+.imagem-blog img {
+    border-radius: 50%;
+    margin: 0 15px;
+}
+
+.agenda hr {
+    margin: 0;
+}
+
+.jogos-dia {
+    padding: 0px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.jogos-dia p {
+    font-size: 12px;
+    margin: 15px 0px 0px;
+}
+
+.confrontos {
+    display: flex;
+    flex-direction: column;
+}
+
+.confrontos-times {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0 20px;
+}
+
+.confrontos-times img {
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
+}
+
+.confrontos-times span {
+    margin-top: 2px;
+    color: #454545;
+}
+
+.duelo {
+    margin: 6px 40px 0px !important;
+    color: #dbdbdb;
+    font-size: 14px;
+}
+
+.jogos-dia hr {
+    color: #828282;
+}
+
+.more-news button {
+    width: 98%;
+    margin-top: 40px;
+}
+
+.titulo-tabela-agenda {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.titulo-tabela-agenda h1 {
+    font-size: 46px !important;
+}
+
+.tabela-agenda {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tabela-brasileiro {
+    width: 65%;
+}
+
+.agenda-brasileiro {
+    width: 30%;
+}
+
+.jogos-brasileirao {
+    height: 770px;
+    border: solid 1px #d6d6d6;
+}
+
+.agenda-brasileiro h2 {
+    margin-bottom: 40px;
+}
+
+.rodada {
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    border-bottom: solid 1px #d6d6d6;
+    padding: 2px 5px 5px;
+}
+
+.nav-drop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-drop p {
+    margin: 0;
+}

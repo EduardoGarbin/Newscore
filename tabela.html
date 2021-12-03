@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="responsive.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title> Newscore - Seu estádio dos stats! </title>
+</head>
+
+<body>
+    <nav class="navbar justify-content-between">
+        <a class="nav-drop"> <button class="navbar-toggler navbar-dark p-2" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <p>MENU </p>
+        </a>
+        <a href="index.html" class="logo-nav"><img src="imagens/logo.png" alt="Newscore" /></a>
+        <a href="telalogin/Login_v1/index.html" class="nav-drop"><img src="imagens/user-face.png" style="width:37px;height:37px;" class="p-1" />
+            <p> ENTRAR </p>
+        </a>
+    </nav>
+    <div class="container">
+        <div class="titulo-tabela-agenda">
+            <h1> BRASILEIRÃO SÉRIE A </h1>
+        </div>
+        <div class="tabela-agenda">
+            <div class="tabela-brasileiro">
+                <div>
+                    <h2> Tabela </h2>
+                </div>
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr class="cabeca-tabela">
+                            <th scope="col" colspan="3"> CLASSIFICAÇÃO </th>
+                            <th scope="col"> P </th>
+                            <th scope="col"> J </th>
+                            <th scope="col"> V </th>
+                            <th scope="col"> E </th>
+                            <th scope="col"> D </th>
+                            <th scope="col"> GP </th>
+                            <th scope="col"> GC </th>
+                            <th scope="col"> SG </th>
+                            <th scope="col"> % </th>
+                        </tr>
+                    </thead>
+                    <tbody id='tabela-brasileirao'>
+                    </tbody>
+                </table>
+            </div>
+            <div class="agenda-brasileiro">
+                <div>
+                    <h2> Jogos </h2>
+                </div>
+                <div class="jogos-brasileirao">
+                    <div class="rodada">
+                        <span> Rodada 35 </span>
+                    </div>
+                    <div class="jogos-dia" id="jogos">
+                        <p> HOJE CAMPEONATO BRASILEIRO 21:30 </p>
+                        <div class="confrontos">
+                            <div class="confrontos-times">
+                                <div>
+                                    <span> GRE </span>
+                                    <img src="imagens/gremio.svg" />
+                                </div>
+                                <p class="duelo"> X </p>
+                                <div>
+                                    <img src="imagens/sao-paulo.svg" />
+                                    <span> SAO </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p> HOJE CAMPEONATO BRASILEIRO 21:30 </p>
+                        <div class="confrontos">
+                            <div class="confrontos-times">
+                                <div>
+                                    <span> ATM </span>
+                                    <img src="imagens/atletico-mg.svg" />
+                                </div>
+                                <p class="duelo"> X </p>
+                                <div>
+                                    <img src="imagens/bahia.svg" />
+                                    <span> BAH </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p> HOJE CAMPEONATO BRASILEIRO 21:30 </p>
+                        <div class="confrontos">
+                            <div class="confrontos-times">
+                                <div>
+                                    <span> FLA </span>
+                                    <img src="imagens/Flamengo-2018.svg" />
+                                </div>
+                                <p class="duelo"> X </p>
+                                <div>
+                                    <img src="imagens/sport.svg" />
+                                    <span> SPO </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p> HOJE CAMPEONATO BRASILEIRO 21:30 </p>
+                        <div class="confrontos">
+                            <div class="confrontos-times">
+                                <div>
+                                    <span> FLA </span>
+                                    <img src="imagens/Flamengo-2018.svg" />
+                                </div>
+                                <p class="duelo"> X </p>
+                                <div>
+                                    <img src="imagens/sport.svg" />
+                                    <span> SPO </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p> HOJE CAMPEONATO BRASILEIRO 21:30 </p>
+                        <div class="confrontos">
+                            <div class="confrontos-times">
+                                <div>
+                                    <span> FLA </span>
+                                    <img src="imagens/Flamengo-2018.svg" />
+                                </div>
+                                <p class="duelo"> X </p>
+                                <div>
+                                    <img src="imagens/sport.svg" />
+                                    <span> SPO </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p> HOJE CAMPEONATO BRASILEIRO 21:30 </p>
+                        <div class="confrontos">
+                            <div class="confrontos-times">
+                                <div>
+                                    <span> FLA </span>
+                                    <img src="imagens/Flamengo-2018.svg" />
+                                </div>
+                                <p class="duelo"> X </p>
+                                <div>
+                                    <img src="imagens/sport.svg" />
+                                    <span> SPO </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container footer-container">
+            <div class="left-logo-footer">
+                <a href="index.html"><img src="imagens/logo.png" class="logo-footer" /></a>
+                <div>
+                    <p> Fique por dentro das informações
+                        <br> do futebol brasileiro!
+                    </p>
+                </div>
+            </div>
+            <div class="menu-center-footer">
+                <h4> MENU </h4>
+                <ul class="menu-footer">
+                    <!-- <li> Times </li> -->
+                    <li><a href="tabela.html"> Tabela e Jogos </a></li>
+                    <li><a href="reportagem.html"> Discussão </a></li>
+                    <!-- <li> Apostas </li> -->
+
+                </ul>
+            </div>
+            <div class="sidebar-right-footer-main">
+                <h4> CONTATO </h4>
+                <ul class="sidebar-right-footer">
+                    <li><img src="imagens/envelope.png" height="28px" width="28px" />equipe@newscore.com.br </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Ainda a ser pensado/desenvolvido -->
+        &copy; Newscore 2021. Todos os direitos reservados.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script>
+        $.ajax({
+            url: "https://api.api-futebol.com.br/v1/campeonatos/10/tabela",
+            headers: {
+                "Authorization": "Bearer live_7502b99e142ea542c6938c51e6db9c"
+            },
+            type: "GET",
+            success: function(data) {
+
+                for (let i = 0; i < data.length; i++) {
+                    const element = data[i];
+                    console.log(element)
+                    $("#tabela-brasileirao").append("<tr>" +
+                        "<td>" + element.posicao + "</td>" +
+                        "<td class='escudo-times'><img class='banana' src='" + element.time.escudo +
+                        "'/></td>" +
+                        "<td class='sigla-times'>" + element.time.sigla + "</td>" +
+                        "<td class='pontos-times'>" + element.pontos + "</td>" +
+                        "<td>" + element.jogos + "</td>" +
+                        "<td>" + element.vitorias + "</td>" +
+                        "<td>" + element.empates + "</td>" +
+                        "<td>" + element.derrotas + "</td>" +
+                        "<td>" + element.gols_pro + "</td>" +
+                        "<td>" + element.gols_contra + "</td>" +
+                        "<td>" + element.saldo_gols + "</td>" +
+                        "<td>" + element.aproveitamento + "</td>" +
+                        "</tr>")
+                }
+
+
+                console.log(data);
+
+            }
+        });
+
+
+        // $.ajax({
+        //     url: "https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/36",
+        //     headers: {
+        //         "Authorization": "Bearer live_6436da48f3e46723cb996adf710e31"
+        //     },
+        //     type: "GET",
+        //     success: function(data) {
+
+        //         //for (let i = 0; i < data.length; i++) {
+        //         for (let i = 0; i < 5; i++) {
+        //             const element = data[i];
+        //             console.log(element)
+        //             // $("#tabela-brasileirao").append("<tr>" +
+        //             //     "<td>" + element.posicao + "</td>" +
+        //             //     "<td class='escudo-times'><img class='banana' src='" + element.time.escudo + "'/></td>" +
+        //             //     "<td class='sigla-times'>" + element.time.sigla + "</td>" +
+        //             //     "<td class='pontos-times'>" + element.pontos + "</td>" +
+        //             //     "<td>" + element.vitorias + "</td>" +
+        //             //     "</tr>")
+        //         }
+
+
+        //         console.log(data);
+        //     }
+        // });
+    </script>
+    </script>
+</body>
+
+</html>

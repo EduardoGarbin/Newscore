@@ -1,3 +1,26 @@
+<?php
+	$username = "root";
+	$password = "";
+	$pdo = new PDO('mysql:host=localhost;dbname=newscore', $username, $password);
+
+	$consulta = $pdo->query("SELECT * FROM posts ORDER BY id DESC;");
+
+	$noticias = [];
+	while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+		$noticias[] = [
+			"id" => $linha['id'],
+			"titulo" => $linha['titulo'],
+			"imagem" => $linha['imagem'],
+			"texto1" => $linha['texto1'],
+			"texto2" => $linha['texto2'],
+		];
+	}
+
+	// var_dump($noticias);
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -30,28 +53,26 @@
         <div class="row main-row">
             <!-- Reportagem principal -->
             <div class="main-news">
-                <a href="reportagem.html">
-                    <img class="img-fluid" src="imagens/mengo.jpeg">
-                    <label class="main-titulo"> NA MIRA </label>
-                    <label class="main-subtitulo"> Renato Gaúcho é alvo do Grêmio para 2022 </label>
+                <a href="noticiaDetalhada.php?id=<?= $noticias[0]['id'] ?>">
+                    <img class="img-fluid img-fill" src="<?= $noticias[0]['imagem'] ?>">
+                    <label class="main-titulo"> <?= $noticias[0]['titulo'] ?> </label>
+                    <label class="main-subtitulo"> <?= $noticias[0]['texto1'] ?> </label>
                 </a>
             </div>
             <!-- Reportagens secundárias -->
             <div class="secondary-news d-flex flex-column responsive-secondary-news">
                 <div class="other-news">
-                    <a href="reportagem.html">
-                        <img class="img-fluid" src="imagens/treino.jpeg">
-                        <label class="titulo"> "TREINAR E TREINAR" </label>
-                        <label class="subtitulo"> Após perder mais uma no Brasileirão, Grêmio se prepara para duelo
-                            contra o Sport </label>
+                <a href="noticiaDetalhada.php?id=<?= $noticias[1]['id'] ?>">
+                        <img class="img-fluid" src="<?= $noticias[1]['imagem'] ?>">
+                        <label class="titulo"> <?= $noticias[1]['titulo'] ?> </label>
+                        <label class="subtitulo"> <?= $noticias[0]['texto1'] ?> </label>
                     </a>
                 </div>
                 <div class="other-news">
-                    <a href="reportagem.html">
-                        <img class="img-fluid" src="imagens/abrahao.jpeg">
-                        <label class="titulo"> COBRADO </label>
-                        <label class="subtitulo"> Dirigente de futebol sofre críticas da torcida após nova derrota
-                        </label>
+                <a href="noticiaDetalhada.php?id=<?= $noticias[2]['id'] ?>">
+                        <img class="img-fluid" src="<?= $noticias[2]['imagem'] ?>">
+                        <label class="titulo"> <?= $noticias[2]['titulo'] ?> </label>
+                        <label class="subtitulo"> <?= $noticias[2]['texto1'] ?> </label>
                     </a>
                 </div>
             </div>
@@ -60,20 +81,24 @@
         <div class="secondary-row">
             <!-- Notícias e fóruns sobre os times do Brasileirão -->
             <div class="row-letter">
-                <div class="news">
-                    <a href="reportagem.html">
-                        <div class="image-info">
-                            <img class="img-fluid" src="imagens/base.jpg" />
-                        </div>
-                        <div class="text-info">
-                            <p> categorias de base </p>
-                            <h4> A equipe sub-16 do Grêmio vence o Athlético em Curitiba </h4>
-                            <ul>
-                                <li> Imortal alcança pontuação histórica </li>
-                            </ul>
-                        </div>
-                    </a>
-                </div>
+				<?php 
+					for ($i=3; $i < count($noticias) -1; $i++) { 
+						echo '<hr><div class="news">
+								<a href="noticiaDetalhada.php?id=' . $noticias[$i]['id'] .'">
+									<div class="image-info">
+										<img class="img-fluid" src="'. $noticias[$i]['imagem'] .'" />
+									</div>
+									<div class="text-info">
+										<p> categorias de base </p>
+										<h4> '. $noticias[$i]['titulo'] .' </h4>
+										<ul>
+											<li> '. $noticias[$i]['texto1'] .' </li>
+										</ul>
+									</div>
+								</a>
+							</div>';
+					}			
+				?>
                 <hr>
                 <div class="news">
                     <a href="reportagem.html">

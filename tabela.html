@@ -13,13 +13,13 @@
 
 <body>
     <nav class="navbar justify-content-between">
-        <a class="nav-drop"> <button class="navbar-toggler navbar-dark p-2" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="nav-drop" style="visibility: hidden;"> <button class="navbar-toggler navbar-dark p-2" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <p>MENU </p>
         </a>
-        <a href="index.html" class="logo-nav"><img src="imagens/logo.png" alt="Newscore" /></a>
-        <a href="telalogin/Login_v1/index.html" class="nav-drop"><img src="imagens/user-face.png" style="width:37px;height:37px;" class="p-1" />
+        <a href="index.php" class="logo-nav"><img src="imagens/logo.png" alt="Newscore" /></a>
+        <a href="login.php" class="nav-drop"><img src="imagens/user-face.png" style="width:37px;height:37px;" class="p-1" />
             <p> ENTRAR </p>
         </a>
     </nav>
@@ -167,10 +167,7 @@
             <div class="menu-center-footer">
                 <h4> MENU </h4>
                 <ul class="menu-footer">
-                    <!-- <li> Times </li> -->
                     <li><a href="tabela.html"> Tabela e Jogos </a></li>
-                    <li><a href="reportagem.html"> Discussão </a></li>
-                    <!-- <li> Apostas </li> -->
 
                 </ul>
             </div>
@@ -184,7 +181,6 @@
     </div>
 
     <footer>
-        <!-- Ainda a ser pensado/desenvolvido -->
         &copy; Newscore 2021. Todos os direitos reservados.
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -223,33 +219,6 @@
 
             }
         });
-
-
-        // $.ajax({
-        //     url: "https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/36",
-        //     headers: {
-        //         "Authorization": "Bearer live_6436da48f3e46723cb996adf710e31"
-        //     },
-        //     type: "GET",
-        //     success: function(data) {
-
-        //         //for (let i = 0; i < data.length; i++) {
-        //         for (let i = 0; i < 5; i++) {
-        //             const element = data[i];
-        //             console.log(element)
-        //             // $("#tabela-brasileirao").append("<tr>" +
-        //             //     "<td>" + element.posicao + "</td>" +
-        //             //     "<td class='escudo-times'><img class='banana' src='" + element.time.escudo + "'/></td>" +
-        //             //     "<td class='sigla-times'>" + element.time.sigla + "</td>" +
-        //             //     "<td class='pontos-times'>" + element.pontos + "</td>" +
-        //             //     "<td>" + element.vitorias + "</td>" +
-        //             //     "</tr>")
-        //         }
-
-
-        //         console.log(data);
-        //     }
-        // });
     </script>
     </script>
 </body>

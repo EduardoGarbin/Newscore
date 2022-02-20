@@ -1,22 +1,38 @@
 <?php
-	$username = "root";
-	$password = "";
-	$pdo = new PDO('mysql:host=localhost;dbname=newscore', $username, $password);
 
-	$consulta = $pdo->query("SELECT * FROM posts ORDER BY id DESC;");
+session_start();
 
-	$noticias = [];
-	while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-		$noticias[] = [
-			"id" => $linha['id'],
-			"titulo" => $linha['titulo'],
-			"imagem" => $linha['imagem'],
-			"texto1" => $linha['texto1'],
-			"texto2" => $linha['texto2'],
-		];
-	}
+$username = "root";
+$password = "";
+$pdo = new PDO('mysql:host=localhost;dbname=newscore', $username, $password);
+$pdo2 = new PDO('mysql:host=localhost;dbname=newscore', $username, $password);
 
-	// var_dump($noticias);
+$consulta = $pdo->query("SELECT * FROM posts ORDER BY id DESC;");
+$consulta_forum = $pdo2->query("SELECT * FROM forum ORDER BY id DESC;");
+
+$noticias = [];
+$forum = [];
+
+while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+    $noticias[] = [
+        "id" => $linha['id'],
+        "titulo" => $linha['titulo'],
+        "mini_titulo" => $linha['mini_titulo'],
+        "imagem" => $linha['imagem'],
+        "texto1" => $linha['texto1'],
+        "texto2" => $linha['texto2']
+    ];
+}
+while ($linha_forum = $consulta_forum->fetch(PDO::FETCH_ASSOC)) {
+    $forum[] = [
+        "id" => $linha_forum['id'],
+        "titulo_forum" => $linha_forum['titulo_forum'],
+        "mini_titulo_forum" => $linha_forum['mini_titulo_forum'],
+        "imagem_forum" => $linha_forum['imagem_forum'],
+        "texto1_forum" => $linha_forum['texto1_forum'],
+        "texto2_forum" => $linha_forum['texto2_forum']
+    ];
+}
 
 ?>
 
@@ -36,15 +52,25 @@
 
 <body>
     <nav class="navbar justify-content-between">
-        <a class="nav-drop"> <button class="navbar-toggler navbar-dark p-2" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <p>MENU </p>
-        </a>
+        <?php
+
+        if (!empty($_SESSION) && ($_SESSION['username'] == 'Thaciano')) {
+            echo '<a href="painel/reportagens.php"><span style="font-weight:bold;font-size:20px;"> PAINEL DE ADM </span></a>';
+        } else {
+            echo '<div style="visibility:hidden"></div>';
+        }
+
+        ?>
         <a href="index.html" class="logo-nav"><img src="imagens/logo.png" alt="Newscore" /></a>
-        <a href="telalogin/Login_v1/index.html" class="nav-drop"><img src="imagens/user-face.png" style="width:37px;height:37px;" class="p-1" />
+        <?php
+        if (!empty($_SESSION) && ($_SESSION['loggedin'])) {
+            echo "<span>" . $_SESSION['username'] . "<a href='../logout.php'><span> (Deslogar) </span></a></span>";
+        } else {
+            echo '<a href="../login.php" class="nav-drop"><img src="imagens/user-face.png" style="width:37px;height:37px;" class="p-1" />
             <p> ENTRAR </p>
-        </a>
+        </a>';
+        }
+        ?>
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
@@ -62,14 +88,14 @@
             <!-- Reportagens secundárias -->
             <div class="secondary-news d-flex flex-column responsive-secondary-news">
                 <div class="other-news">
-                <a href="noticiaDetalhada.php?id=<?= $noticias[1]['id'] ?>">
+                    <a href="noticiaDetalhada.php?id=<?= $noticias[1]['id'] ?>">
                         <img class="img-fluid" src="<?= $noticias[1]['imagem'] ?>">
                         <label class="titulo"> <?= $noticias[1]['titulo'] ?> </label>
-                        <label class="subtitulo"> <?= $noticias[0]['texto1'] ?> </label>
+                        <label class="subtitulo"> <?= $noticias[1]['texto1'] ?> </label>
                     </a>
                 </div>
                 <div class="other-news">
-                <a href="noticiaDetalhada.php?id=<?= $noticias[2]['id'] ?>">
+                    <a href="noticiaDetalhada.php?id=<?= $noticias[2]['id'] ?>">
                         <img class="img-fluid" src="<?= $noticias[2]['imagem'] ?>">
                         <label class="titulo"> <?= $noticias[2]['titulo'] ?> </label>
                         <label class="subtitulo"> <?= $noticias[2]['texto1'] ?> </label>
@@ -81,24 +107,24 @@
         <div class="secondary-row">
             <!-- Notícias e fóruns sobre os times do Brasileirão -->
             <div class="row-letter">
-				<?php 
-					for ($i=3; $i < count($noticias) -1; $i++) { 
-						echo '<hr><div class="news">
-								<a href="noticiaDetalhada.php?id=' . $noticias[$i]['id'] .'">
+                <?php
+                for ($i = 3; $i < count($noticias) - 1; $i++) {
+                    echo '<hr><div class="news">
+								<a href="noticiaDetalhada.php?id=' . $noticias[$i]['id'] . '">
 									<div class="image-info">
-										<img class="img-fluid" src="'. $noticias[$i]['imagem'] .'" />
+										<img class="img-fluid" src="' . $noticias[$i]['imagem'] . '" />
 									</div>
 									<div class="text-info">
-										<p> categorias de base </p>
-										<h4> '. $noticias[$i]['titulo'] .' </h4>
+										<p> ' . $noticias[$i]['mini_titulo'] . ' </p>
+										<h4> ' . $noticias[$i]['titulo'] . ' </h4>
 										<ul>
-											<li> '. $noticias[$i]['texto1'] .' </li>
+											<li> ' . $noticias[$i]['texto1'] . ' </li>
 										</ul>
 									</div>
 								</a>
 							</div>';
-					}			
-				?>
+                }
+                ?>
                 <hr>
                 <div class="news">
                     <a href="reportagem.html">
@@ -174,10 +200,6 @@
                         </div>
                     </a>
                 </div>
-                <div class="more-news">
-                    <button type="button" class="btn btn-primary btn-lg"> Ler Mais Notícias </button>
-                    <!-- Vai carregar mais notícias no próprio site -->
-                </div>
             </div>
             <div class="tab">
                 <!-- Tabela Brasileirão (5 primeiros times) -->
@@ -196,10 +218,8 @@
                     </table>
                     <div class="ir-tabela-completa">
                         <a href="tabela.html"> Ver tabela completa
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                             </svg>
                         </a>
                     </div>
@@ -247,10 +267,8 @@
                         <hr>
                         <div class="ir-tabela-completa">
                             <a href="tabela.html"> Mais Jogos
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                                 </svg>
                             </a>
                         </div>
@@ -262,57 +280,26 @@
                             <h4> Blogs e colunas </h4>
                         </div>
                         <hr>
-                        <div class="info-blog">
-                            <a href="reportagem.html">
-                                <div class="texto-blog">
-                                    <h5> Eduardo na arquibancada </h5>
-                                    <p> O silêncio que calou os gritos </p>
-                                </div>
-                                <div class="imagem-blog">
-                                    <img src="imagens/corrida.webp" />
-                                </div>
-                            </a>
-                        </div>
-                        <hr>
-                        <div class="info-blog">
-                            <a href="reportagem.html">
-                                <div class="texto-blog">
-                                    <h5> Eduardo na arquibancada </h5>
-                                    <p> O silêncio que calou os gritos </p>
-                                </div>
-                                <div class="imagem-blog">
-                                    <img src="imagens/corrida.webp" />
-                                </div>
-                            </a>
-                        </div>
-                        <hr>
-                        <div class="info-blog">
-                            <a href="reportagem.html"></a>
-                            <div class="texto-blog">
-                                <h5> Eduardo na arquibancada </h5>
-                                <p> O silêncio que calou os gritos </p>
+                        <?php
+                        for ($f = 0; $f < 3; $f++) {
+                            echo
+                            '<div class="info-blog">
+                                <a href="noticiaForum.php?id=' . $forum[$f]['id'] . '">
+                                    <div class="texto-blog">
+                                        <h5> ' . $forum[$f]['titulo_forum'] . ' </h5>
+                                        <p> ' . $forum[$f]['mini_titulo_forum'] . ' </p>
+                                    </div>
+                                    <div class="imagem-blog">
+                                        <img src="' . $forum[$f]['imagem_forum'] . '" style="width:94px;height:94px;" />
+                                    </div>
+                                </a>
                             </div>
-                            <div class="imagem-blog">
-                                <img src="imagens/corrida.webp" />
-                            </div>
-                            </a>
-                        </div>
-                        <hr>
-                        <div class="ir-tabela-completa">
-                            <a href="reportagem.html"> Mais Blogs
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                                </svg>
-                            </a>
-                        </div>
+                            <hr>';
+                        }
+                        ?>
+
                     </div>
                 </div>
-                <!-- Principais jogos da rodada (com os odds de apostas do lado de cada time) -->
-                <!-- <div class="tabela"> Principais jogos </div> -->
-                <!-- Opiniões de analistas e comentaristas sobre os jogos -->
-                <!-- <div class="tabela"> Opinião </div> -->
             </div>
 
         </div>
@@ -321,7 +308,7 @@
     <div class="footer">
         <div class="container footer-container">
             <div class="left-logo-footer">
-                <a href="index.html"><img src="imagens/logo.png" class="logo-footer" /></a>
+                <a href="index.php"><img src="imagens/logo.png" class="logo-footer" /></a>
                 <div>
                     <p> Fique por dentro das informações
                         <br> do futebol brasileiro!
@@ -331,11 +318,7 @@
             <div class="menu-center-footer">
                 <h4> MENU </h4>
                 <ul class="menu-footer">
-                    <!-- <li> Times </li> -->
                     <li><a href="tabela.html"> Tabela e Jogos </a></li>
-                    <li><a href="reportagem.html"> Discussão </a></li>
-                    <!-- <li> Apostas </li> -->
-
                 </ul>
             </div>
             <div class="sidebar-right-footer-main">
@@ -348,7 +331,6 @@
     </div>
 
     <footer>
-        <!-- Ainda a ser pensado/desenvolvido -->
         &copy; Newscore 2021. Todos os direitos reservados.
     </footer>
 
@@ -362,7 +344,6 @@
         type: "GET",
         success: function(data) {
 
-            //for (let i = 0; i < data.length; i++) {
             for (let i = 0; i < 5; i++) {
                 const element = data[i];
                 console.log(element)
@@ -375,39 +356,8 @@
                     "<td>" + element.vitorias + "</td>" +
                     "</tr>")
             }
-
-
-            console.log(data);
-
         }
     });
-
-
-    // $.ajax({
-    //     url: "https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/36",
-    //     headers: {
-    //         "Authorization": "Bearer live_6436da48f3e46723cb996adf710e31"
-    //     },
-    //     type: "GET",
-    //     success: function(data) {
-
-    //         //for (let i = 0; i < data.length; i++) {
-    //         for (let i = 0; i < 5; i++) {
-    //             const element = data[i];
-    //             console.log(element)
-    //             // $("#tabela-brasileirao").append("<tr>" +
-    //             //     "<td>" + element.posicao + "</td>" +
-    //             //     "<td class='escudo-times'><img class='banana' src='" + element.time.escudo + "'/></td>" +
-    //             //     "<td class='sigla-times'>" + element.time.sigla + "</td>" +
-    //             //     "<td class='pontos-times'>" + element.pontos + "</td>" +
-    //             //     "<td>" + element.vitorias + "</td>" +
-    //             //     "</tr>")
-    //         }
-
-
-    //         console.log(data);
-    //     }
-    // });
 </script>
 
 </html>

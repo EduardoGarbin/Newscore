@@ -6,19 +6,20 @@ if (empty($_GET["id"])) {
 
 $username = "root";
 $password = "";
-$pdo = new PDO('mysql:host=localhost;dbname=newscore', $username, $password);
+$pdo2 = new PDO('mysql:host=localhost;dbname=newscore', $username, $password);
 
-$consulta = $pdo->query("SELECT * FROM posts WHERE id=" . $_GET["id"]);
+$consulta_forum = $pdo2->query("SELECT * FROM forum WHERE id=" . $_GET["id"]);
 
-$noticia = [];
-while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-	$noticia = [
-		"id" => $linha['id'],
-		"titulo" => $linha['titulo'],
-		"imagem" => $linha['imagem'],
-		"texto1" => $linha['texto1'],
-		"texto2" => $linha['texto2'],
-	];
+$forum = [];
+while ($linha_forum = $consulta_forum->fetch(PDO::FETCH_ASSOC)) {
+    $forum = [
+        "id" => $linha_forum['id'],
+        "titulo_forum" => $linha_forum['titulo_forum'],
+        "mini_titulo_forum" => $linha_forum['mini_titulo_forum'],
+        "imagem_forum" => $linha_forum['imagem_forum'],
+        "texto1_forum" => $linha_forum['texto1_forum'],
+        "texto2_forum" => $linha_forum['texto2_forum']
+    ];
 }
 
 ?>
@@ -43,8 +44,8 @@ while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 			</button>
 			<p>MENU </p>
 		</a>
-		<a href="index.php" class="logo-nav"><img src="imagens/logo.png" alt="Newscore" /></a>
-		<a href="login.php" class="nav-drop"><img src="imagens/user-face.png" style="width:37px;height:37px;" class="p-1" />
+		<a href="index.html" class="logo-nav"><img src="imagens/logo.png" alt="Newscore" /></a>
+		<a href="telalogin/Login_v1/index.html" class="nav-drop"><img src="imagens/user-face.png" style="width:37px;height:37px;" class="p-1" />
 			<p> ENTRAR </p>
 		</a>
 	</nav>
@@ -52,11 +53,11 @@ while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 	</script>
 	<div class="container body-container">
 		<div class="row main-row">
-			<center><h1><?= $noticia['titulo'] ?></h1></center>
-			<center><h4><?= $noticia['texto1'] ?></h4></center>
-			<img src='<?= $noticia['imagem'] ?>' class="img-fluid" />
+			<center><h1><?= $forum['titulo_forum'] ?></h1></center>
+			<center><h4><?= $forum['texto1_forum'] ?></h4></center>
+			<img src='<?= $forum['imagem_forum'] ?>' class="img-fluid" />
 			<div class="informacao-privilegiada">
-				<center><p style="font-size:22px;text-align:justify"><?= $noticia['texto2'] ?></p></center>
+				<center><p style="font-size:22px;text-align:justify"><?= $forum['texto2_forum'] ?></p></center>
 			</div>
 			
 		</div>
@@ -64,7 +65,7 @@ while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 	<div class="footer">
         <div class="container footer-container">
             <div class="left-logo-footer">
-                <a href="index.html"><img src="imagens/logo.png" class="logo-footer" /></a>
+                <a href="index.php"><img src="imagens/logo.png" class="logo-footer" /></a>
                 <div>
                     <p> Fique por dentro das informações
                         <br> do futebol brasileiro!

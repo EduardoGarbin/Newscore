@@ -3,7 +3,7 @@
 $mensagemPraNaoQuebrar = "";
 
 if (!empty($_GET["status"])) {
-	$mensagemPraNaoQuebrar = $_GET["status"];	
+    $mensagemPraNaoQuebrar = $_GET["status"];
 }
 ?>
 
@@ -35,20 +35,11 @@ if (!empty($_GET["status"])) {
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link link-dark" aria-current="page">
-                        <img src="casa-unica.png" height="25" width="25" /> Página Inicial
+                    <a href="../index.php" class="nav-link link-dark" aria-current="page">
+                        <img src="casa-unica.png" height="25" width="25" /> Voltar ao site
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <img src="noticia.png" height="25" width="25" /> Reportagens
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <img src="bate-papo.png" height="25" width="25" /> Fóruns
-                    </a>
-                </li>
+
             </ul>
             <hr>
             <div class="d-flex flex-row align-items-center">
@@ -61,9 +52,9 @@ if (!empty($_GET["status"])) {
             <div class="reportagens">
                 <span class="fs-1 text-primary font-weight-bold" id="titulo-geral"> REPORTAGENS </span>
             </div>
-			<div>
-				<span class="text-success"><?= strtoupper($mensagemPraNaoQuebrar) ?></span>
-			</div>
+            <div>
+                <span class="text-success"><?= strtoupper($mensagemPraNaoQuebrar) ?></span>
+            </div>
             <div class="container pick-filter">
                 <div>
                     <span class="fs-1 text-primary font-weight-bold"> ACESSE UMA PÁGINA </span>
@@ -81,12 +72,18 @@ if (!empty($_GET["status"])) {
             </div>
 
 
-            <form method="post" action="salvarPost.php" enctype="multipart/form-data">
+            <form method="post" action="salvarPost.php" enctype="multipart/form-data" class="todas-reportagens">
                 <div class="item">
                     <div class="titulo-2">
-                        <label> Título </label>
+                        <label> Título Principal </label>
                     </div>
                     <input type="text" name="titulo" class="form-control" />
+                </div>
+                <div class="item">
+                    <div class="titulo-2">
+                        <label> Subtítulo </label>
+                    </div>
+                    <input type="text" name="mini_titulo" class="form-control" />
                 </div>
                 <div class="item">
                     <div class="imagem">
@@ -96,40 +93,87 @@ if (!empty($_GET["status"])) {
                 </div>
                 <div class="item">
                     <div class="texto">
-                        <label> Texto 1</label>
+                        <label> Texto 1 </label>
                     </div>
                     <textarea name="texto1" class="form-control" rows="4"></textarea>
                 </div>
-				<div class="item">
+                <div class="item">
                     <div class="texto">
-                        <label> Texto 2</label>
+                        <label> Texto 2 </label>
                     </div>
                     <textarea name="texto2" class="form-control" rows="4"></textarea>
                 </div>
+
                 <button id="botao" class="btn btn-primary"> Voltar </button>
-				<button id="enviar" type="submit" class="btn btn-success"> Enviar </button>
+                <button id="enviar" type="submit" class="btn btn-success"> Enviar </button>
+            </form>
+            <form class="todo-forum" method="post" action="salvarForum.php" enctype="multipart/form-data">
+
+                <div class="item">
+                    <div class="titulo-2">
+                        <label> Título Principal </label>
+                    </div>
+                    <input type="text" name="titulo_forum" class="form-control" />
+                </div>
+                <div class="item">
+                    <div class="titulo-2">
+                        <label> Subtítulo </label>
+                    </div>
+                    <input type="text" name="mini_titulo_forum" class="form-control" />
+                </div>
+                <div class="item">
+                    <div class="imagem">
+                        <label> Imagem </label>
+                    </div>
+                    <input type="file" name="imagem_forum" />
+                </div>
+                <div class="item">
+                    <div class="texto">
+                        <label> Texto 1 </label>
+                    </div>
+                    <textarea name="texto1_forum" class="form-control" rows="4"></textarea>
+                </div>
+                <div class="item">
+                    <div class="texto">
+                        <label> Texto 2 </label>
+                    </div>
+                    <textarea name="texto2_forum" class="form-control" rows="4"></textarea>
+                </div>
+                <button id="botao-forum" class="btn btn-primary"> Voltar </button>
+                <button id="enviar-forum" type="submit" class="btn btn-success"> Enviar </button>
             </form>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
             </script>
             <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
             <script>
-                $('form').css("display", "none");
+                $(document).ready(function() {
+                    $('.todo-forum').hide();
+                    $('.todas-reportagens').hide();
+                })
 
                 $('#clicarForum').click(function() {
                     $('#titulo-geral').text('FÓRUM');
-                    $('form').show();
+                    $('.todo-forum').show();
                     $('.pick-filter').hide();
 
                 })
                 $('#botao').click(function() {
                     $('#titulo-geral').text('REPORTAGENS');
-                    $('form').hide();
+                    $('.todas-reportagens').hide();
+                    $('.todo-forum').hide();
+                    $('.pick-filter').show();
+                })
+
+                $('#botao-forum').click(function() {
+                    $('#titulo-geral').text('REPORTAGENS');
+                    $('.todas-reportagens').hide();
+                    $('.todo-forum').hide();
                     $('.pick-filter').show();
                 })
 
                 $('#clicarReportagem').click(function() {
                     $('#titulo-geral').text('REPORTAGEM');
-                    $('form').show();
+                    $('.todas-reportagens').show();
                     $('.pick-filter').hide();
                 })
             </script>

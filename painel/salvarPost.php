@@ -1,13 +1,10 @@
 <?php
 
 	$titulo = $_POST["titulo"];
+	$subtitulo = $_POST['mini_titulo'];
 	$imagem = $_FILES["imagem"];
 	$texto1 = $_POST["texto1"];
 	$texto2 = $_POST["texto2"];
-
-	if (empty($titulo)) {
-		die("Tem q ter titulo");
-	}
 
 	$destino = "";
 	$path = "";
@@ -25,12 +22,12 @@
 		$conn = new PDO('mysql:host=localhost;dbname=newscore', $username, $password);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$sql = "INSERT INTO posts (titulo, imagem, texto1, texto2) VALUES (?,?,?,?)";
+		$sql = "INSERT INTO posts (titulo, mini_titulo, imagem, texto1, texto2) VALUES (?,?,?,?,?)";
 		$stmt= $conn->prepare($sql);
-		$stmt->execute([$titulo, $path, $texto1, $texto2]);
+		$stmt->execute([$titulo, $subtitulo, $path, $texto1, $texto2]);
 
 		if ($stmt->rowCount() > 0) {
-			header("Location: http://localhost/trabalhogarbin/Newscore/painel/reportagens.php?status=sucesso");
+			header("Location: http://localhost/news/Newscore/painel/reportagens.php?status=sucesso");
 		}
 		die();
 	} catch(PDOException $e) {
